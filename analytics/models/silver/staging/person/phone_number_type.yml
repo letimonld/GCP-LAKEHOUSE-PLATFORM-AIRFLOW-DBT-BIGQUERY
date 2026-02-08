@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: phone_number_type
+        description: "Type of phone number of a person"
+        columns:
+          - name: phone_number_type_id
+            description: "Primary key for telephone number type records"
+          - name: name
+            description: "Name of the telephone number type"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

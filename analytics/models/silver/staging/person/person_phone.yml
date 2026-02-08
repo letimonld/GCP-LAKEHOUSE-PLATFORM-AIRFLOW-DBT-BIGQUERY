@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: person_phone
+        description: "Telephone number and type for a person"
+        columns:
+          - name: business_entity_id
+            description: "Business entity identification number. Foreign key to Person.BusinessEntityID"
+          - name: phone_number
+            description: "Telephone number identification number"
+          - name: phone_number_type_id
+            description: "Kind of phone number. Foreign key to PhoneNumberType.PhoneNumberTypeID"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

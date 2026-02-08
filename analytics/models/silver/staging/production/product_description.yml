@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_description
+        description: "Product descriptions in several languages."
+        columns:
+          - name: product_description_id
+            description: "Primary key for ProductDescription records."
+          - name: description
+            description: "Description of the product."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

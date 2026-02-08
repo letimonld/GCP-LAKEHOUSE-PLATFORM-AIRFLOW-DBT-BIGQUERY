@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: special_offer
+        description: "Sale discounts and promotional information."
+        columns:
+          - name: special_offer_id
+            description: "Primary key for SpecialOffer records."
+          - name: description
+            description: "Discount description."
+          - name: discount_pct
+            description: "Discount percentage (FLOAT64)."
+          - name: type
+            description: "Discount type category."
+          - name: category
+            description: "Group the discount applies to such as Reseller or Customer."
+          - name: start_date
+            description: "Discount start date."
+          - name: end_date
+            description: "Discount end date."
+          - name: min_qty
+            description: "Minimum discount quantity allowed."
+          - name: max_qty
+            description: "Maximum discount quantity allowed."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

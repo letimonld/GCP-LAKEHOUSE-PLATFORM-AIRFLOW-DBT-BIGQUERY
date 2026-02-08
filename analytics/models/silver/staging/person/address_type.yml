@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: address_type
+        description: "Types of addresses stored in the Address table"
+        columns:
+          - name: address_type_id
+            description: "Primary key for AddressType records"
+          - name: name
+            description: "Address type description. For example, Billing, Home, or Shipping"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

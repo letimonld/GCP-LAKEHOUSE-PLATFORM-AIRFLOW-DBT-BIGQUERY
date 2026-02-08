@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: country_region
+        description: "Lookup table containing the ISO standard codes for countries and regions"
+        columns:
+          - name: country_region_code
+            description: "ISO standard code for countries and regions"
+          - name: name
+            description: "Country or region name"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

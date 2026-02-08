@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: store
+        description: "Customers that are organizations (resellers)."
+        columns:
+          - name: business_entity_id
+            description: "Primary key. Foreign key to Customer.business_entity_id."
+          - name: name
+            description: "Name of the store."
+          - name: sales_person_id
+            description: "ID of the sales person assigned to the store."
+          - name: demographics
+            description: "Demographic information about the store (XML/STRING)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

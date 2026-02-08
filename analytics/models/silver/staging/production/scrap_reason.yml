@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: scrap_reason
+        description: "Reasons why products are scrapped."
+        columns:
+          - name: scrap_reason_id
+            description: "Primary key for ScrapReason records."
+          - name: name
+            description: "Failure description."
+          - name: modified_date
+            description: "Date and time the record was last updated."

@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: business_entity_address
+        description: "Cross-reference table mapping customers, vendors, and employees to their addresses"
+        columns:
+          - name: business_entity_id
+            description: "Primary key. Foreign key to BusinessEntity.BusinessEntityID"
+          - name: address_id
+            description: "Primary key. Foreign key to Address.AddressID"
+          - name: address_type_id
+            description: "Primary key. Foreign key to AddressType.AddressTypeID"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

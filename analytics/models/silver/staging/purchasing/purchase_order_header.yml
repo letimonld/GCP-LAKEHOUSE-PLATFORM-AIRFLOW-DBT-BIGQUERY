@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: silver_staging__purchasing
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__purchasing
+    tables:
+      - name: purchase_order_header
+        description: "General purchase order information."
+        columns:
+          - name: purchase_order_id
+            description: "Primary key."
+          - name: revision_number
+            description: "Incremental number to track changes to the purchase order over time."
+          - name: status
+            description: "Order current status. 1 = Pending; 2 = Approved; 3 = Rejected; 4 = Complete"
+          - name: employee_id
+            description: "Employee who created the purchase order. Foreign key to Employee.business_entity_id."
+          - name: vendor_id
+            description: "Vendor with whom the purchase order is placed. Foreign key to Vendor.business_entity_id."
+          - name: ship_method_id
+            description: "Shipping method. Foreign key to ShipMethod.ship_method_id."
+          - name: order_date
+            description: "Purchase order creation date."
+          - name: ship_date
+            description: "Estimated shipment date from the vendor."
+          - name: sub_total
+            description: "Purchase order subtotal (Stored as STRING in BQ)."
+          - name: tax_amt
+            description: "Tax amount (Stored as STRING in BQ)."
+          - name: freight
+            description: "Shipping cost (Stored as STRING in BQ)."
+          - name: total_due
+            description: "Total due to vendor. Computed as Subtotal + TaxAmt + Freight (Stored as STRING in BQ)."
+          - name: modified_date
+            description: "Date and time the record was last updated."

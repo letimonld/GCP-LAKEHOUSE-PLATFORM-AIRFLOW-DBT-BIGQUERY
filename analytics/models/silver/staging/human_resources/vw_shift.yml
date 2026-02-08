@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__human_resources
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__human_resources
+    tables:
+      - name: vw_shift
+        description: "Work shift lookup table"
+        columns:
+          - name: shift_id
+            description: "Primary key for Shift records"
+          - name: name
+            description: "Shift description"
+          - name: start_time
+            description: "Shift start time"
+          - name: end_time
+            description: "Shift end time"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

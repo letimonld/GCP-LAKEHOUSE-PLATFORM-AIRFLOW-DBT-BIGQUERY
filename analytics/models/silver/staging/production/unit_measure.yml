@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: unit_measure
+        description: "Unit of measure lookup table."
+        columns:
+          - name: unit_measure_code
+            description: "Primary key. Standard code identifying the unit of measure."
+          - name: name
+            description: "Unit of measure description."
+          - name: modified_date
+            description: "Date and time the record was last updated."

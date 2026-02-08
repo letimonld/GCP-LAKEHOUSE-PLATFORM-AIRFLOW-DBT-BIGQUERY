@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: currency_rate
+        description: "Daily exchange rates between currencies."
+        columns:
+          - name: currency_rate_id
+            description: "Primary key for CurrencyRate records."
+          - name: currency_rate_date
+            description: "Date and time the exchange rate was obtained."
+          - name: from_currency_code
+            description: "Exchange rate was converted from this currency code."
+          - name: to_currency_code
+            description: "Exchange rate was converted to this currency code."
+          - name: average_rate
+            description: "Average exchange rate for the day (Stored as STRING in BQ)."
+          - name: end_of_day_rate
+            description: "Final exchange rate for the day (Stored as STRING in BQ)."
+          - name: modified_date
+            description: "Date and time the record was last updated."

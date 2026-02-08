@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_cost_history
+        description: "Changes in the cost of a product over time."
+        columns:
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id"
+          - name: start_date
+            description: "Product cost start date."
+          - name: end_date
+            description: "Product cost end date."
+          - name: standard_cost
+            description: "Standard cost of the product (Stored as STRING in BQ)."
+          - name: modified_date
+            description: "Date and time the record was last updated."

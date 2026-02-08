@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: customer
+        description: "Information about Adventure Works customers (Individual or Store)."
+        columns:
+          - name: customer_id
+            description: "Primary key for Customer records."
+          - name: person_id
+            description: "Foreign key to Person.business_entity_id."
+          - name: store_id
+            description: "Foreign key to Store.business_entity_id."
+          - name: territory_id
+            description: "ID of the territory in which the customer is located."
+          - name: account_number
+            description: "Unique number identifying the customer assigned by the accounting system."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

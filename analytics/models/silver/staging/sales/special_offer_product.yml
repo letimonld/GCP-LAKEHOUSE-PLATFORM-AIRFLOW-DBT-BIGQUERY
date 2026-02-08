@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: special_offer_product
+        description: "Cross-reference table mapping products to special offers."
+        columns:
+          - name: special_offer_id
+            description: "Primary key for SpecialOfferProduct records."
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

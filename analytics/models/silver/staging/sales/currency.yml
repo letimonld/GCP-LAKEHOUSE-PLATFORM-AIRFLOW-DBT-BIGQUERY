@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: currency
+        description: "Lookup table containing standard ISO currencies."
+        columns:
+          - name: currency_code
+            description: "The ISO code for the Currency."
+          - name: name
+            description: "Currency name."
+          - name: modified_date
+            description: "Date and time the record was last updated."

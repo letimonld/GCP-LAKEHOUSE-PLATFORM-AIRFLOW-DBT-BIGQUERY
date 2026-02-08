@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_category
+        description: "High-level product categorization."
+        columns:
+          - name: product_category_id
+            description: "Primary key for ProductCategory records."
+          - name: name
+            description: "Category description."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_product_photo
+        description: "Cross-reference table mapping products to photos."
+        columns:
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: product_photo_id
+            description: "Product photo identification number. Foreign key to ProductPhoto.product_photo_id."
+          - name: primary
+            description: "0 = Photo is not the principal image. 1 = Photo is the principal image."
+          - name: modified_date
+            description: "Date and time the record was last updated."

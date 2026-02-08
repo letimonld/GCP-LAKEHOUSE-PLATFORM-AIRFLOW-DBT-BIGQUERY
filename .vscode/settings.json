@@ -1,0 +1,9 @@
+{
+  "dbt.profilesDir": "${workspaceFolder}/analytics",
+  "dbt.projectDir": "${workspaceFolder}/analytics",
+  "dbt.pythonPath": "python",
+  "dbt.enableAutocomplete": true,
+  "dbt.enableLinting": true,
+  "dbt.perspectiveTheme": "Vintage"
+}
+

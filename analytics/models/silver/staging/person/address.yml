@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: address
+        description: "Street address information for customers, employees, and vendors"
+        columns:
+          - name: address_id
+            description: "Primary key for Address records"
+          - name: address_line_1
+            description: "First street address line"
+          - name: address_line_2
+            description: "Second street address line"
+          - name: city
+            description: "Name of the city"
+          - name: state_province_id
+            description: "Unique identification number for the state or province. Foreign key to StateProvince table"
+          - name: postal_code
+            description: "Postal code for the street address"
+          - name: spatial_location
+            description: "Latitude and longitude of this address"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

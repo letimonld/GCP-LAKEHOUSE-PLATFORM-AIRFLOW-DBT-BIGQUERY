@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_model_illustration
+        description: "Cross-reference table mapping product models to illustrations."
+        columns:
+          - name: product_model_id
+            description: "Primary key. Foreign key to ProductModel.product_model_id."
+          - name: illustration_id
+            description: "Primary key. Foreign key to Illustration.illustration_id."
+          - name: modified_date
+            description: "Date and time the record was last updated."

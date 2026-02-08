@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_document
+        description: "Cross-reference table mapping products to related documents."
+        columns:
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: document_node
+            description: "Document identification number. Foreign key to Document.document_node."
+          - name: modified_date
+            description: "Date and time the record was last updated."

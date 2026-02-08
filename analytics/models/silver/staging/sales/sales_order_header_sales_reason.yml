@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_order_header_sales_reason
+        description: "Cross-reference table mapping sales orders to sales reasons."
+        columns:
+          - name: sales_order_id
+            description: "Primary key. Foreign key to SalesOrderHeader.sales_order_id."
+          - name: sales_reason_id
+            description: "Primary key. Foreign key to SalesReason.sales_reason_id."
+          - name: modified_date
+            description: "Date and time the record was last updated."

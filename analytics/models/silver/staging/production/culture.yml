@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: culture
+        description: "Lookup table containing the languages in which product descriptions are available."
+        columns:
+          - name: culture_id
+            description: "Primary key for Culture records."
+          - name: name
+            description: "Culture description."
+          - name: modified_date
+            description: "Date and time the record was last updated."
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source."
+          - name: date
+            description: "Partition date for the record."

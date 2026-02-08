@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_person
+        description: "Sales representative information."
+        columns:
+          - name: business_entity_id
+            description: "Primary key for SalesPerson records. Foreign key to Employee.business_entity_id."
+          - name: territory_id
+            description: "Territory currently assigned to."
+          - name: sales_quota
+            description: "Projected yearly sales (Stored as STRING in BQ)."
+          - name: bonus
+            description: "Bonus due if quota is met (Stored as STRING in BQ)."
+          - name: commission_pct
+            description: "Commission percent received per sale (FLOAT64)."
+          - name: sales_ytd
+            description: "Sales total year to date (Stored as STRING in BQ)."
+          - name: sales_last_year
+            description: "Sales total of previous year (Stored as STRING in BQ)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_inventory
+        description: "Product inventory levels by location."
+        columns:
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: location_id
+            description: "Inventory location identification number. Foreign key to Location.location_id."
+          - name: shelf
+            description: "Storage compartment within an inventory location."
+          - name: bin
+            description: "Storage container on a shelf in an inventory location."
+          - name: quantity
+            description: "Quantity of products in the inventory location."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

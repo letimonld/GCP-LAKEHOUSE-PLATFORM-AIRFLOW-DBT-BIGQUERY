@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: business_entity
+        description: "Source of the ID that connects vendors, customers, and employees with address and contact information"
+        columns:
+          - name: business_entity_id
+            description: "Primary key for all customers, vendors, and employees"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

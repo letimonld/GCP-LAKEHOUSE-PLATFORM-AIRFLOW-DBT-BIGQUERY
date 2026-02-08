@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_territory
+        description: "Sales territory lookup table."
+        columns:
+          - name: territory_id
+            description: "Primary key for SalesTerritory records."
+          - name: name
+            description: "Sales territory description."
+          - name: country_region_code
+            description: "ISO standard country or region code."
+          - name: group
+            description: "Geographic area to which the sales territory belongs."
+          - name: sales_ytd
+            description: "Sales in the territory year to date (Stored as STRING in BQ)."
+          - name: sales_last_year
+            description: "Sales in the territory the previous year (Stored as STRING in BQ)."
+          - name: cost_ytd
+            description: "Business costs in the territory year to date (Stored as STRING in BQ)."
+          - name: cost_last_year
+            description: "Business costs in the territory the previous year (Stored as STRING in BQ)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

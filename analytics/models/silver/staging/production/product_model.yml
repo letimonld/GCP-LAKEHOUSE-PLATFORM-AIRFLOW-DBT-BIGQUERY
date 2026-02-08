@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_model
+        description: "Product model classification."
+        columns:
+          - name: product_model_id
+            description: "Primary key for ProductModel records."
+          - name: name
+            description: "Product model description."
+          - name: catalog_description
+            description: "Detailed product catalog information in xml format."
+          - name: instructions
+            description: "Manufacturing instructions in xml format."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

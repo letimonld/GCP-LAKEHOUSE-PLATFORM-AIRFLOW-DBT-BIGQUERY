@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: document
+        description: "Product maintenance documents."
+        columns:
+          - name: document_node
+            description: "Primary key for Document records."
+          - name: document_level
+            description: "Depth in the document hierarchy."
+          - name: title
+            description: "Title of the document."
+          - name: owner
+            description: "Employee who controls the document. Foreign key to Employee.BusinessEntityID"
+          - name: folder_flag
+            description: "0 = This is a folder, 1 = This is a document."
+          - name: file_name
+            description: "File name of the document"
+          - name: file_extension
+            description: "File extension indicating the document type. For example, .doc or .txt."
+          - name: revision
+            description: "Revision number of the document."
+          - name: change_number
+            description: "Engineering change approval number."
+          - name: status
+            description: "1 = Pending approval, 2 = Approved, 3 = Obsolete"
+          - name: document_summary
+            description: "Document abstract."
+          - name: document
+            description: "Complete document."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Required for FileStream."
+          - name: modified_date
+            description: "Date and time the record was last updated."
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source."
+          - name: date
+            description: "Partition date for the record."

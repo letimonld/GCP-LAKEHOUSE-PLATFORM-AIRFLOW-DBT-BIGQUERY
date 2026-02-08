@@ -1,0 +1,40 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: person
+        description: "Human beings involved with AdventureWorks: employees, customer contacts, and vendor contacts"
+        columns:
+          - name: business_entity_id
+            description: "Primary key for Person records"
+          - name: person_type
+            description: "Primary type of person: SC = Store Contact, IN = Individual (retail) customer, SP = Sales person, EM = Employee (non-sales), VC = Vendor contact, GC = General contact"
+          - name: name_style
+            description: "0 = The data in FirstName and LastName are stored in western style (first name, last name) order. 1 = Eastern style (last name, first name) order"
+          - name: title
+            description: "A courtesy title. For example, Mr. or Ms."
+          - name: first_name
+            description: "First name of the person"
+          - name: middle_name
+            description: "Middle name or middle initial of the person"
+          - name: last_name
+            description: "Last name of the person"
+          - name: suffix
+            description: "Surname suffix. For example, Sr. or Jr."
+          - name: email_promotion
+            description: "0 = Contact does not wish to receive e-mail promotions, 1 = Contact does wish to receive e-mail promotions from AdventureWorks, 2 = Contact does wish to receive e-mail promotions from AdventureWorks and selected partners"
+          - name: additional_contact_info
+            description: "Additional contact information about the person stored in xml format"
+          - name: demographics
+            description: "Personal information such as hobbies, and income collected from online shoppers. Used for sales analysis"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record. Used to support a merge replication sample"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

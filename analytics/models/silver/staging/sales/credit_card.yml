@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: credit_card
+        description: "Customer credit card information."
+        columns:
+          - name: credit_card_id
+            description: "Primary key for CreditCard records."
+          - name: card_type
+            description: "Credit card name (e.g., Vista, Distinguished)."
+          - name: card_number
+            description: "Credit card number."
+          - name: exp_month
+            description: "Credit card expiration month."
+          - name: exp_year
+            description: "Credit card expiration year."
+          - name: modified_date
+            description: "Date and time the record was last updated."

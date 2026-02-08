@@ -1,0 +1,46 @@
+version: 2
+
+sources:
+  - name: silver_staging__human_resources
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__human_resources
+    tables:
+      - name: employee
+        description: "Employee information including login, job title, and demographic details"
+        columns:
+          - name: business_entity_id
+            description: "Primary key for Employee records. Foreign key to BusinessEntity.BusinessEntityID"
+          - name: national_id_number
+            description: "Unique national identification number such as a social security number"
+          - name: login_id
+            description: "Network login"
+          - name: organization_node
+            description: "Where the employee is located in corporate hierarchy"
+          - name: organization_level
+            description: "The depth of the employee in the corporate hierarchy"
+          - name: job_title
+            description: "Work title such as Buyer or Sales Representative"
+          - name: birth_date
+            description: "Date of birth"
+          - name: marital_status
+            description: "M = Married, S = Single"
+          - name: gender
+            description: "M = Male, F = Female"
+          - name: hire_date
+            description: "Employee hired on this date"
+          - name: salaried_flag
+            description: "Job classification. 0 = Hourly, not exempt from collective bargaining. 1 = Salaried, exempt from collective bargaining"
+          - name: vacation_hours
+            description: "Number of available vacation hours"
+          - name: sick_leave_hours
+            description: "Number of available sick leave hours"
+          - name: current_flag
+            description: "0 = Inactive, 1 = Active"
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

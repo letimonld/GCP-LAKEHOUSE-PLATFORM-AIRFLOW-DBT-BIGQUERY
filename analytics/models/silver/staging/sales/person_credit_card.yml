@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: person_credit_card
+        description: "Cross-reference table mapping people to their credit cards."
+        columns:
+          - name: business_entity_id
+            description: "Business entity identification number. Foreign key to Person.business_entity_id."
+          - name: credit_card_id
+            description: "Credit card identification number. Foreign key to CreditCard.credit_card_id."
+          - name: modified_date
+            description: "Date and time the record was last updated."

@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: location
+        description: "Product inventory and manufacturing locations."
+        columns:
+          - name: location_id
+            description: "Primary key for Location records."
+          - name: name
+            description: "Location description."
+          - name: cost_rate
+            description: "Standard hourly cost of the manufacturing location."
+          - name: availability
+            description: "Work capacity (in hours) of the manufacturing location."
+          - name: modified_date
+            description: "Date and time the record was last updated."
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source."
+          - name: date
+            description: "Partition date for the record."

@@ -1,0 +1,11 @@
+gcp-sa.json
+.env
+examples/
+.cursor/
+dataform/
+analytics/target/
+analytics/dbt_packages/
+analytics/logs/
+logs/
+__pycache__
+dbt_internal_packages/

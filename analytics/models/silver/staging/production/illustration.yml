@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: illustration
+        description: "Bicycle assembly diagrams."
+        columns:
+          - name: illustration_id
+            description: "Primary key for Illustration records."
+          - name: diagram
+            description: "Illustrations used in manufacturing instructions. Stored as XML."
+          - name: modified_date
+            description: "Date and time the record was last updated."
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source."
+          - name: date
+            description: "Partition date for the record."

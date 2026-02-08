@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__human_resources
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__human_resources
+    tables:
+      - name: employee_pay_history
+        description: "Employee pay history"
+        columns:
+          - name: business_entity_id
+            description: "Employee identification number. Foreign key to Employee.BusinessEntityID"
+          - name: rate_change_date
+            description: "Date the change in pay is effective"
+          - name: rate
+            description: "Salary hourly rate"
+          - name: pay_frequency
+            description: "1 = Salary received monthly, 2 = Salary received biweekly"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

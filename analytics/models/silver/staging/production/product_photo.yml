@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_photo
+        description: "Images of the products."
+        columns:
+          - name: product_photo_id
+            description: "Primary key for ProductPhoto records."
+          - name: thumb_nail_photo
+            description: "Small image of the product (Stored as BYTES)."
+          - name: thumb_nail_photo_file_name
+            description: "Small image file name."
+          - name: large_photo
+            description: "Large image of the product (Stored as BYTES)."
+          - name: large_photo_filename
+            description: "Large image file name."
+          - name: modified_date
+            description: "Date and time the record was last updated."

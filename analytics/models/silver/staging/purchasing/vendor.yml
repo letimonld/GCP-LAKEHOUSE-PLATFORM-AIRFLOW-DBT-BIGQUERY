@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: silver_staging__purchasing
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__purchasing
+    tables:
+      - name: vendor
+        description: "Companies from whom Adventure Works Cycles purchases parts or products."
+        columns:
+          - name: business_entity_id
+            description: "Primary key for Vendor records. Foreign key to BusinessEntity.business_entity_id."
+          - name: account_number
+            description: "Vendor account (identification) number."
+          - name: name
+            description: "Company name."
+          - name: credit_rating
+            description: "1 = Superior, 2 = Excellent, 3 = Above average, 4 = Average, 5 = Below average"
+          - name: preferred_vendor_status
+            description: "0 = Not preferred, 1 = Preferred."
+          - name: active_flag
+            description: "0 = Vendor no longer used. 1 = Vendor is actively used."
+          - name: purchasing_web_service_url
+            description: "Vendor URL."
+          - name: modified_date
+            description: "Date and time the record was last updated."

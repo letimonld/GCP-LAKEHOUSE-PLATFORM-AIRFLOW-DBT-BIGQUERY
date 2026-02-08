@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_model_product_description_culture
+        description: "Cross-reference table mapping product models, descriptions, and cultures."
+        columns:
+          - name: product_model_id
+            description: "Primary key. Foreign key to ProductModel.product_model_id."
+          - name: product_description_id
+            description: "Primary key. Foreign key to ProductDescription.product_description_id."
+          - name: culture_id
+            description: "Culture identification number. Foreign key to Culture.culture_id."
+          - name: modified_date
+            description: "Date and time the record was last updated."

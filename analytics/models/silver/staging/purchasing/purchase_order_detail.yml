@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__purchasing
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__purchasing
+    tables:
+      - name: purchase_order_detail
+        description: "Individual products associated with a specific purchase order."
+        columns:
+          - name: purchase_order_id
+            description: "Primary key. Foreign key to PurchaseOrderHeader.purchase_order_id."
+          - name: purchase_order_detail_id
+            description: "Primary key. One line number per purchased product."
+          - name: due_date
+            description: "Date the product is expected to be received."
+          - name: order_qty
+            description: "Quantity ordered."
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: unit_price
+            description: "Vendor's selling price of a single product (Stored as STRING in BQ)."
+          - name: line_total
+            description: "Per product subtotal. Computed as OrderQty * UnitPrice (Stored as STRING in BQ)."
+          - name: received_qty
+            description: "Quantity actually received from the vendor."
+          - name: rejected_qty
+            description: "Quantity rejected during inspection."
+          - name: stocked_qty
+            description: "Quantity accepted into inventory. Computed as ReceivedQty - RejectedQty."
+          - name: modified_date
+            description: "Date and time the record was last updated."

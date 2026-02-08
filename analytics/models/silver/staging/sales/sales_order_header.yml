@@ -1,0 +1,62 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_order_header
+        description: "General sales order information."
+        columns:
+          - name: sales_order_id
+            description: "Primary key."
+          - name: revision_number
+            description: "Incremental number to track changes to the sales order over time."
+          - name: order_date
+            description: "Dates the sales order was created."
+          - name: due_date
+            description: "Date the order is due to the customer."
+          - name: ship_date
+            description: "Date the order was shipped to the customer."
+          - name: status
+            description: "Order current status. 1 = In process; 2 = Approved; 3 = Backordered; 4 = Rejected; 5 = Shipped; 6 = Cancelled."
+          - name: online_order_flag
+            description: "0 = Order placed by sales person. 1 = Order placed online by customer."
+          - name: sales_order_number
+            description: "Unique sales order identification number."
+          - name: purchase_order_number
+            description: "Customer purchase order number reference."
+          - name: account_number
+            description: "Financial accounting number reference."
+          - name: customer_id
+            description: "Customer identification number. Foreign key to Customer.customer_id."
+          - name: sales_person_id
+            description: "Sales person who created the sales order."
+          - name: territory_id
+            description: "Territory in which the sale was made."
+          - name: bill_to_address_id
+            description: "Customer billing address. Foreign key to Address.address_id."
+          - name: ship_to_address_id
+            description: "Customer shipping address. Foreign key to Address.address_id."
+          - name: ship_method_id
+            description: "Shipping method. Foreign key to ShipMethod.ship_method_id."
+          - name: credit_card_id
+            description: "Credit card identification number. Foreign key to CreditCard.credit_card_id."
+          - name: credit_card_approval_code
+            description: "Approval code provided by the credit card company."
+          - name: currency_rate_id
+            description: "Currency exchange rate used."
+          - name: sub_total
+            description: "Sales subtotal (Stored as STRING in BQ)."
+          - name: tax_amt
+            description: "Tax amount (Stored as STRING in BQ)."
+          - name: freight
+            description: "Shipping cost (Stored as STRING in BQ)."
+          - name: total_due
+            description: "Total due from customer (Stored as STRING in BQ)."
+          - name: comment
+            description: "Sales representative comments."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

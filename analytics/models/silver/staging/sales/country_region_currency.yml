@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: country_region_currency
+        description: "Cross-reference table mapping countries and regions to their currencies."
+        columns:
+          - name: country_region_code
+            description: "ISO code for countries and regions. Foreign key to CountryRegion.country_region_code."
+          - name: currency_code
+            description: "ISO standard currency code. Foreign key to Currency.currency_code."
+          - name: modified_date
+            description: "Date and time the record was last updated."

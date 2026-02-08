@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_order_detail
+        description: "Individual products associated with a specific sales order."
+        columns:
+          - name: sales_order_id
+            description: "Primary key. Foreign key to SalesOrderHeader.sales_order_id."
+          - name: sales_order_detail_id
+            description: "Primary key. One incremental unique number per product sold."
+          - name: carrier_tracking_number
+            description: "Shipment tracking number supplied by the shipper."
+          - name: order_qty
+            description: "Quantity ordered per product."
+          - name: product_id
+            description: "Product sold to customer. Foreign key to Product.product_id."
+          - name: special_offer_id
+            description: "Promotional code. Foreign key to SpecialOffer.special_offer_id."
+          - name: unit_price
+            description: "Selling price of a single product (Stored as STRING in BQ)."
+          - name: unit_price_discount
+            description: "Discount amount (Stored as STRING in BQ)."
+          - name: line_total
+            description: "Per product subtotal. Computed as UnitPrice * (1 - UnitPriceDiscount) * OrderQty (Stored as NUMERIC in BQ)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

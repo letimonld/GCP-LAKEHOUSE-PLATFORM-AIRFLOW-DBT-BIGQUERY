@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__purchasing
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__purchasing
+    tables:
+      - name: product_vendor
+        description: "Cross-reference table mapping vendors to the products they supply."
+        columns:
+          - name: product_id
+            description: "Primary key. Foreign key to Product.product_id."
+          - name: business_entity_id
+            description: "Primary key. Foreign key to Vendor.business_entity_id."
+          - name: average_lead_time
+            description: "The average span of time (in days) between placing an order and receiving the product."
+          - name: standard_price
+            description: "The vendor's usual selling price (Stored as STRING in BQ)."
+          - name: last_receipt_cost
+            description: "The selling price when last purchased (Stored as STRING in BQ)."
+          - name: last_receipt_date
+            description: "Date the product was last received by the vendor."
+          - name: min_order_qty
+            description: "The maximum quantity that should be ordered."
+          - name: max_order_qty
+            description: "The minimum quantity that should be ordered."
+          - name: on_order_qty
+            description: "The quantity currently on order."
+          - name: unit_measure_code
+            description: "The product's unit of measure."
+          - name: modified_date
+            description: "Date and time the record was last updated."

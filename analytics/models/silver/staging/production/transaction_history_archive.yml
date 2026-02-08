@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: transaction_history_archive
+        description: "Transactions older than six months are moved to this table."
+        columns:
+          - name: transaction_id
+            description: "Primary key for TransactionHistoryArchive records."
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: reference_order_id
+            description: "Purchase order, sales order, or work order identification number."
+          - name: reference_order_line_id
+            description: "Line number associated with the purchase order, sales order, or work order."
+          - name: transaction_date
+            description: "Date and time of the transaction."
+          - name: transaction_type
+            description: "W = Work Order, S = Sales Order, P = Purchase Order"
+          - name: quantity
+            description: "Product quantity."
+          - name: actual_cost
+            description: "Product cost (Stored as STRING in BQ)."
+          - name: modified_date
+            description: "Date and time the record was last updated."

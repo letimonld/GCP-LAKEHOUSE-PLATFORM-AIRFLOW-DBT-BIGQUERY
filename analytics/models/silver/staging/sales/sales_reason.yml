@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_reason
+        description: "Lookup table containing the reasons why customers purchase products."
+        columns:
+          - name: sales_reason_id
+            description: "Primary key for SalesReason records."
+          - name: name
+            description: "Sales reason description."
+          - name: reason_type
+            description: "Category the sales reason belongs to."
+          - name: modified_date
+            description: "Date and time the record was last updated."

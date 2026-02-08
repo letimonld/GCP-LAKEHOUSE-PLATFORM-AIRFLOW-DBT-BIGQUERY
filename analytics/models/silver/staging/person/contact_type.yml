@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__person
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__person
+    tables:
+      - name: contact_type
+        description: "Lookup table containing the types of business entity contacts"
+        columns:
+          - name: contact_type_id
+            description: "Primary key for ContactType records"
+          - name: name
+            description: "Contact type description"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

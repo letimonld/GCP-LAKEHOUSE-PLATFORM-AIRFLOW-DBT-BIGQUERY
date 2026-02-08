@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_subcategory
+        description: "Product subcategory information."
+        columns:
+          - name: product_subcategory_id
+            description: "Primary key for ProductSubcategory records."
+          - name: product_category_id
+            description: "Product category identification number. Foreign key to ProductCategory.product_category_id."
+          - name: name
+            description: "Subcategory description."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

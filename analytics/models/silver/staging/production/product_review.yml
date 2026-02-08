@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: product_review
+        description: "Customer reviews of Adventure Works products."
+        columns:
+          - name: product_review_id
+            description: "Primary key for ProductReview records."
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: reviewer_name
+            description: "Name of the reviewer."
+          - name: review_date
+            description: "Date review was submitted."
+          - name: email_address
+            description: "Reviewer's e-mail address."
+          - name: rating
+            description: "Product rating (1 to 5)."
+          - name: comments
+            description: "Reviewer's comments."
+          - name: modified_date
+            description: "Date and time the record was last updated."

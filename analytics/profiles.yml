@@ -1,0 +1,23 @@
+analytics:
+  target: staging
+  outputs:
+    staging:
+      type: bigquery
+      method: service-account
+      keyfile: ./gcp-sa.json
+      project: from-warehouse-to-lakehouse
+      dataset: silver_staging
+      location: asia-southeast1
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
+    intermediate:
+      type: bigquery
+      method: service-account
+      keyfile: ./gcp-sa.json
+      project: from-warehouse-to-lakehouse
+      dataset: silver_intermediate
+      location: asia-southeast1
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive

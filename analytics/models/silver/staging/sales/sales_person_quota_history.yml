@@ -1,0 +1,20 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_person_quota_history
+        description: "Historical sales quota records."
+        columns:
+          - name: business_entity_id
+            description: "Sales person identification number. Foreign key to SalesPerson.business_entity_id."
+          - name: quota_date
+            description: "Sales quota date."
+          - name: sales_quota
+            description: "Sales quota amount (Stored as STRING in BQ)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

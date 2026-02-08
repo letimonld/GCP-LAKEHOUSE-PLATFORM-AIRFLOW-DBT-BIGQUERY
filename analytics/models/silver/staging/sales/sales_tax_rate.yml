@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_tax_rate
+        description: "Tax rate lookup table."
+        columns:
+          - name: sales_tax_rate_id
+            description: "Primary key for SalesTaxRate records."
+          - name: state_province_id
+            description: "State, province, or country/region the sales tax applies to."
+          - name: tax_type
+            description: "1 = Retail, 2 = Wholesale, 3 = All transactions."
+          - name: tax_rate
+            description: "Tax rate amount (FLOAT64)."
+          - name: name
+            description: "Tax rate description."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

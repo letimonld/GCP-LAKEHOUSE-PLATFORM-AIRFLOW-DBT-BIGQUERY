@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__purchasing
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__purchasing
+    tables:
+      - name: ship_method
+        description: "Shipping company lookup table."
+        columns:
+          - name: ship_method_id
+            description: "Primary key for ShipMethod records."
+          - name: name
+            description: "Shipping company name."
+          - name: ship_base
+            description: "Minimum shipping charge (Stored as STRING in BQ)."
+          - name: ship_rate
+            description: "Shipping charge per pound (Stored as STRING in BQ)."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."

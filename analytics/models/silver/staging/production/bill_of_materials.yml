@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: bill_of_materials
+        description: "Items required to make a specific product."
+        columns:
+          - name: bill_of_materials_id
+            description: "Primary key for BillOfMaterials records."
+          - name: product_assembly_id
+            description: "Parent product identification number. Foreign key to Product.ProductID."
+          - name: component_id
+            description: "Component identification number. Foreign key to Product.ProductID."
+          - name: start_date
+            description: "Date the component started being used in the assembly item."
+          - name: end_date
+            description: "Date the component stopped being used in the assembly item."
+          - name: unit_measure_code
+            description: "Standard code identifying the unit of measure for the quantity."
+          - name: bom_level
+            description: "Indicates the depth the component is from its parent (AssemblyID)."
+          - name: per_assembly_qty
+            description: "Quantity of the component needed to create the assembly."
+          - name: modified_date
+            description: "Date and time the record was last updated."
+          - name: _extract_date_
+            description: "The date when the data was extracted from the source system."
+          - name: date
+            description: "Partition date for the record"

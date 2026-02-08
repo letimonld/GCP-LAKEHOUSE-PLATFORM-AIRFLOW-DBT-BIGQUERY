@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: work_order_routing
+        description: "Work order details, including the locations and resources used."
+        columns:
+          - name: work_order_id
+            description: "Primary key. Foreign key to WorkOrder.work_order_id."
+          - name: product_id
+            description: "Primary key. Foreign key to Product.product_id."
+          - name: operation_sequence
+            description: "Primary key. Indicates the order of the operation."
+          - name: location_id
+            description: "Inventory location where the part is manufactured. Foreign key to Location.location_id."
+          - name: scheduled_start_date
+            description: "Planned manufacturing start date."
+          - name: scheduled_end_date
+            description: "Planned manufacturing end date."
+          - name: actual_start_date
+            description: "Actual manufacturing start date."
+          - name: actual_end_date
+            description: "Actual manufacturing end date."
+          - name: actual_resource_hrs
+            description: "Number of manufacturing hours used."
+          - name: planned_cost
+            description: "Estimated manufacturing cost (Stored as STRING in BQ)."
+          - name: actual_cost
+            description: "Actual manufacturing cost (Stored as STRING in BQ)."
+          - name: modified_date
+            description: "Date and time the record was last updated."

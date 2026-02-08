@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: silver_staging__production
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__production
+    tables:
+      - name: work_order
+        description: "Manufacturing work orders."
+        columns:
+          - name: work_order_id
+            description: "Primary key for WorkOrder records."
+          - name: product_id
+            description: "Product identification number. Foreign key to Product.product_id."
+          - name: order_qty
+            description: "Product quantity to build."
+          - name: stocked_qty
+            description: "Quantity built and stocked. Computed as OrderQty - ScrappedQty."
+          - name: scrapped_qty
+            description: "Quantity that failed inspection."
+          - name: start_date
+            description: "Work order start date."
+          - name: end_date
+            description: "Work order end date."
+          - name: due_date
+            description: "Work order due date."
+          - name: scrap_reason_id
+            description: "Reason for scrap. Foreign key to ScrapReason.scrap_reason_id."
+          - name: modified_date
+            description: "Date and time the record was last updated."

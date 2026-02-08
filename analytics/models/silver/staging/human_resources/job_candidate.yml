@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__human_resources
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__human_resources
+    tables:
+      - name: job_candidate
+        description: "Résumés submitted to Human Resources by job applicants"
+        columns:
+          - name: job_candidate_id
+            description: "Primary key for JobCandidate records"
+          - name: business_entity_id
+            description: "Employee identification number if applicant was hired. Foreign key to Employee.BusinessEntityID"
+          - name: resume
+            description: "Résumé in XML format"
+          - name: modified_date
+            description: "Date and time the record was last updated"
+          - name: _extract_date_
+            description: "Timestamp when data was extracted from source"
+          - name: date
+            description: "Partition date for the record"

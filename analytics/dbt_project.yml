@@ -1,0 +1,59 @@
+name: 'analytics'
+version: '1.0.0'
+profile: 'analytics'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  analytics:
+    silver:
+      staging:
+        person:
+          +materialized: view
+          +schema: _person
+        
+        human_resources:
+          +materialized: view
+          +schema: _human_resources
+        
+        production:
+          +materialized: view
+          +schema: _production
+        
+        purchasing:
+          +materialized: view
+          +schema: _purchasing
+        
+        sales:
+          +materialized: view
+          +schema: _sales
+      
+      intermediate:
+        person:
+          +materialized: table
+          +schema: _person
+        
+        human_resources:
+          +materialized: table
+          +schema: _human_resources
+        
+        production:
+          +materialized: table
+          +schema: _production
+        
+        purchasing:
+          +materialized: table
+          +schema: _purchasing
+        
+        sales:
+          +materialized: table
+          +schema: _sales

@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: silver_staging__sales
+    database: from-warehouse-to-lakehouse
+    schema: silver_staging__sales
+    tables:
+      - name: sales_territory_history
+        description: "Historical records of sales person territory assignments."
+        columns:
+          - name: business_entity_id
+            description: "The sales rep. Foreign key to SalesPerson.business_entity_id."
+          - name: territory_id
+            description: "Territory identification number."
+          - name: start_date
+            description: "Date the sales representative started work in the territory."
+          - name: end_date
+            description: "Date the sales representative left work in the territory."
+          - name: row_guid
+            description: "ROWGUIDCOL number uniquely identifying the record."
+          - name: modified_date
+            description: "Date and time the record was last updated."
