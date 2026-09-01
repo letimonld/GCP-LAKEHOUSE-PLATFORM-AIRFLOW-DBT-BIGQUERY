@@ -7,5 +7,13 @@ analytics/target/
 analytics/dbt_packages/
 analytics/logs/
 logs/
-__pycache__
+__pycache__/
 dbt_internal_packages/
+
+# Python bytecode & cache
+*.py[cod]
+
+# IDE / Editor files
+.DS_Store
+.idea/
+*.swp
